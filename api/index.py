@@ -1,5 +1,4 @@
 import json
-import statistics
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -15,7 +14,7 @@ app.add_middleware(
 with open("q-vercel-latency.json") as f:
     data = json.load(f)
 
-@app.post("/api/analytics")
+@app.post("/")
 async def analytics(request: Request):
     body = await request.json()
     regions = body["regions"]
